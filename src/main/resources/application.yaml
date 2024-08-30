@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Shopping-Cart
+  profiles:
+    active: dev

@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/shopping_cart_db
+    username: postgres
+    password: sajan123
+    driver-class-name: org.postgresql.Driver
+  # jpa configuration
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+server:
+  servlet:
+    context-path: /api/v1
