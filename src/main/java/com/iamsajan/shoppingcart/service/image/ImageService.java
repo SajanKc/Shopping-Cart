@@ -55,7 +55,7 @@ public class ImageService implements IImageService {
                 image.setImage(new SerialBlob(file.getBytes()));
                 image.setProduct(product);
 
-                String downloadUrl = applicationContextPath.concat("/images/image/download/").concat(image.getId());
+                String downloadUrl = applicationContextPath.concat("/image/download/").concat(image.getId());
                 image.setDownloadUrl(downloadUrl);
 
                 Image savedImage = imageRepository.save(image);
