@@ -4,6 +4,8 @@ spring:
     username: postgres
     password: sajan123
     driver-class-name: org.postgresql.Driver
+    hikari:
+      auto-commit: false # handle large objects
   # jpa configuration
   jpa:
     generate-ddl: true
@@ -17,6 +19,10 @@ spring:
   sql:
     init:
       mode: always
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
 server:
   servlet:
     context-path: /api/v1
