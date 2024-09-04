@@ -38,7 +38,7 @@ public class ImageController {
     }
 
     @GetMapping("/download/{imageId}")
-    private ResponseEntity<Resource> downloadImage(@PathVariable String imageId) throws SQLException {
+    private ResponseEntity<Resource> downloadImage(String imageId) throws SQLException {
         Image image = imageService.getImageById(imageId);
         ByteArrayResource resource = new ByteArrayResource(image.getImage().getBytes(1, (int) image.getImage().length()));
         return ResponseEntity.ok()
@@ -48,7 +48,7 @@ public class ImageController {
     }
 
     @PutMapping("/update/{imageId}")
-    private ResponseEntity<ApiResponse> updateImage(@PathVariable String imageId, @RequestBody MultipartFile file) {
+    private ResponseEntity<ApiResponse> updateImage(String imageId, @RequestBody MultipartFile file) {
         try {
             Image image = imageService.getImageById(imageId);
             if (image != null) {
@@ -62,7 +62,7 @@ public class ImageController {
     }
 
     @DeleteMapping("/delete/{imageId}")
-    private ResponseEntity<ApiResponse> deleteImage(@PathVariable String imageId) {
+    private ResponseEntity<ApiResponse> deleteImage(String imageId) {
         try {
             Image image = imageService.getImageById(imageId);
             if (image != null) {

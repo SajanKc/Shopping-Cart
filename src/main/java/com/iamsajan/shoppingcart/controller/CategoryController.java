@@ -43,7 +43,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    private ResponseEntity<ApiResponse> getCategoryById(@PathVariable Long id) {
+    private ResponseEntity<ApiResponse> getCategoryById(Long id) {
         try {
             Category category = categoryService.getCategoryById(id);
             return ResponseEntity.ok(new ApiResponse("Category Found!", category));
@@ -53,7 +53,7 @@ public class CategoryController {
     }
 
     @GetMapping("/by-name/{name}")
-    private ResponseEntity<ApiResponse> getCategoryByName(@PathVariable String name) {
+    private ResponseEntity<ApiResponse> getCategoryByName(String name) {
         try {
             Category category = categoryService.getCategoryByName(name);
             return ResponseEntity.ok(new ApiResponse("Category Found!", category));
@@ -63,7 +63,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    private ResponseEntity<ApiResponse> deleteCategoryById(@PathVariable Long id) {
+    private ResponseEntity<ApiResponse> deleteCategoryById(Long id) {
         try {
             categoryService.deleteCategory(id);
             return ResponseEntity.ok(new ApiResponse("Category deleted!", null));
@@ -73,7 +73,7 @@ public class CategoryController {
     }
 
     @PutMapping("/update/{id}")
-    private ResponseEntity<ApiResponse> updateCategory(@PathVariable Long id, @RequestBody Category category) {
+    private ResponseEntity<ApiResponse> updateCategory(Long id, @RequestBody Category category) {
         try {
             Category updatedCategory = categoryService.updateCategory(category, id);
             return ResponseEntity.ok(new ApiResponse("Category updated!", updatedCategory));
